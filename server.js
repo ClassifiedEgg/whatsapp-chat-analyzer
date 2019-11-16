@@ -9,7 +9,7 @@ var fs = require('fs');
 const app = express();
 
 // Init Middleware
-app.use(cors({ origin: "http://localhost:3000" }));
+// app.use(cors({ origin: "http://localhost:4000" }));
 app.use(express.json({ extended: false }));
 app.use(fileUpload());
 
