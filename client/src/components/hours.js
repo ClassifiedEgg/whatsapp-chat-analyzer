@@ -5,7 +5,8 @@ import {
     VerticalGridLines,
     HorizontalGridLines,
     VerticalBarSeries,
-    FlexibleWidthXYPlot
+    FlexibleWidthXYPlot,
+    LabelSeries
 } from 'react-vis';
 import { Typography, Grid, Box } from '@material-ui/core';
 

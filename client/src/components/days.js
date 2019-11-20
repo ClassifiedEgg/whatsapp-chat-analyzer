@@ -47,13 +47,13 @@ const Days = ({ data, styles }) => {
                     </Grid>
                     <Grid item xs>
                         {data &&
-                            <FlexibleWidthXYPlot height={300} stackBy="y">
+                            <FlexibleWidthXYPlot height={300} stackBy="y" xType="ordinal">
                                 <VerticalGridLines />
                                 <HorizontalGridLines />
                                 <XAxis />
                                 <YAxis />
-                                <VerticalBarSeries data={data[0].messagesPerDays.map((el, i) => ({ x: i, y: el }))} color={styles.firstUser.color} />
-                                <VerticalBarSeries data={data[1].messagesPerDays.map((el, i) => ({ x: i, y: el }))} color={styles.secondUser.color} />
+                                <VerticalBarSeries data={data[0].messagesPerDays.map((el, i) => ({ x: Object.values(days)[i], y: el }))} color={styles.firstUser.color} />
+                                <VerticalBarSeries data={data[1].messagesPerDays.map((el, i) => ({ x: Object.values(days)[i], y: el }))} color={styles.secondUser.color} />
                             </FlexibleWidthXYPlot >
                         }
                     </Grid>
