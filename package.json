@@ -1,7 +1,7 @@
 {
   "name": "whatsapp-chat-analyzer",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web app to visualize your WhatsApp chat data",
   "main": "index.js",
   "dependencies": {
     "@material-ui/core": "^4.6.0",
@@ -26,6 +26,6 @@
     "node": "10.x"
   },
   "keywords": [],
-  "author": "Ashish",
+  "author": "Ashish Reddy",
   "license": "ISC"
 }
