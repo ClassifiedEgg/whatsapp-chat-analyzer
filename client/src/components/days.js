@@ -52,8 +52,14 @@ const Days = ({ data, styles }) => {
                                 <HorizontalGridLines />
                                 <XAxis />
                                 <YAxis />
-                                <VerticalBarSeries data={data[0].messagesPerDays.map((el, i) => ({ x: Object.values(days)[i], y: el }))} color={styles.firstUser.color} />
-                                <VerticalBarSeries data={data[1].messagesPerDays.map((el, i) => ({ x: Object.values(days)[i], y: el }))} color={styles.secondUser.color} />
+                                <VerticalBarSeries
+                                    data={data[0].messagesPerDays.map((el, i) => ({ x: Object.values(days)[i], y: el }))}
+                                    color={styles.firstUser.color}
+                                />
+                                <VerticalBarSeries
+                                    data={data[1].messagesPerDays.map((el, i) => ({ x: Object.values(days)[i], y: el }))}
+                                    color={styles.secondUser.color}
+                                />
                             </FlexibleWidthXYPlot >
                         }
                     </Grid>
