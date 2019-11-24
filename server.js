@@ -20,8 +20,13 @@ app.post("/file", (req, res) => {
   }
   try {
     const file = req.files.file;
+    const filePath = `${__dirname}/client/public`;
 
-    file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
+    if(!fs.existsSync(`${filePath}/uploads`)){
+      fs.mkdirSync(`${filePath}/uploads`);
+    }
+
+    file.mv(`${filePath}/uploads/${file.name}`, err => {
       if (err) {
         console.error(err);
         return res.status(500).send(err);
@@ -274,19 +279,19 @@ app.post("/file", (req, res) => {
 
     lr.on("end", () => {
       res.json({ data })
-      fs.unlinkSync(`${__dirname}/client/public/uploads/${file.name}`);
+      fs.unlinkSync(`${filePath}/uploads/${file.name}`);
     });
   } catch (err) {
     res.status(500).send("Server Error");
   }
 });
 
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
 
@@ -301,4 +306,3 @@ app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 // Date and Time -> /(?<=)(.*)(?= -)/
 // Message -> /(?<=: )(.*)(?=)/
 // Emoji -> /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/
- 
