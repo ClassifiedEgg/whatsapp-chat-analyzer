@@ -11,7 +11,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6-alpha.5",
     "line-by-line": "^0.1.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "react-vis": "^1.11.7"
   },
   "devDependencies": {},
